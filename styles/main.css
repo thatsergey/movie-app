@@ -1,0 +1,17 @@
+.update{
+   background:  rgb(228, 194, 0);
+   padding: 10px;
+   display: flex;
+   align-items: center;
+   column-gap: 15px;
+   width: max-content;
+   border-radius: 6px;
+   color: #000;
+   font-size: 18px;
+   font-weight: 600;
+   position: relative;
+   cursor: pointer;
+}
+.update:hover{
+   background: rgb(245, 219, 72);
+}
