@@ -1,12 +1,17 @@
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import '../styles/globals.css'
 import '../styles/main.css'
 import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import { BASE_URL } from '../utils/constans'
+import { useAppStore } from '../store/store'
+import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
-  console.log(pageProps);
+  const { setItems } = useAppStore();
+  useEffect(()=>{
+    setItems(pageProps.data);
+  }, [pageProps.data,setItems])
   return(
     <div className={styles.container}>
       <Component {...pageProps} />
