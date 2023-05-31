@@ -8,10 +8,12 @@ import { useAppStore } from '../store/store'
 import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
-  const { setItems } = useAppStore();
+  const { setItems, items } = useAppStore();
+
   useEffect(()=>{
+    if(!items.length) setItems(pageProps.data)
     setItems(pageProps.data);
-  }, [pageProps.data,setItems])
+  }, [pageProps.data, setItems, items])
   return(
     <div className={styles.container}>
       <Component {...pageProps} />

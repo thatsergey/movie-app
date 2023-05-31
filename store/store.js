@@ -4,7 +4,7 @@ export const useAppStore = create(
    persist(
    (set)=>({
       items:[],
-      setItems: (items)=>set({items})
+      setItems: ({data})=>set({items:data})
    }),
    {
       name: 'storage'

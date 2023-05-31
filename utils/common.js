@@ -16,3 +16,4 @@ export const request = async({ url, params = {} })=>{
    console.log(data);
    return data;
 }
+export const getIdFromKey = (str) => str.split('/')[2]
