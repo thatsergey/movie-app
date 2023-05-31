@@ -6,6 +6,7 @@ import axios from 'axios'
 import { BASE_URL } from '../utils/constans'
 import { useAppStore } from '../store/store'
 import { useEffect } from 'react'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   const { setItems, items } = useAppStore();
@@ -14,10 +15,17 @@ function MyApp({ Component, pageProps }) {
     if(!items.length) setItems(pageProps.data)
     setItems(pageProps.data);
   }, [pageProps.data, setItems, items])
+
   return(
     <div className={styles.container}>
-      <Component {...pageProps} />
-      <Footer />
+      <Head>
+        <title>The best movie </title>
+      </Head>
+      <main className={styles.main}>
+        <Component {...pageProps} />
+        <Footer />
+
+      </main>
     </div>
   ) 
 }
