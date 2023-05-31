@@ -4,8 +4,12 @@ import Image from "next/image";
 import movieImg from '../images/default-movie.jpg'
 import { convertDuration } from "../utils/common";
 import { useState } from "react";
+import Cast from "./Cast";
+import Review from "./Review";
 
-const MovieItem = ( { title: { title, image, year, runningTimeInMinutes: duration }, ratings:{ rating },
+const MovieItem = ( {
+id, 
+title: { title, image, year, runningTimeInMinutes: duration }, ratings:{ rating },
 plotSummary: plot,
 plotOutline: shortPlot,
 genres,
@@ -49,11 +53,12 @@ genres,
          </div> 
        </div>
          </div>
-         {isOpen &&
-          <>
-            <div>CAST</div>
-            <div>Review</div>
-         </>}
+         {isOpen &&(
+            <>
+               <Cast id={id}/>
+               <Review />
+            </>
+         )}
          <div className={styles.more} onClick={() => { setIsOpen(!isOpen)}}>
          {isOpen ? 'Hide info' : 'View more info'}
          </div>                           
