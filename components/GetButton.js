@@ -4,14 +4,24 @@ import update from '../images/refresh.png'
 import { useAppStore } from "../store/store";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../utils/constans";
-import { getIdFromKey } from '../utils/common'
+import { getIdFromKey, getRandom } from '../utils/common'
 // import styles from 
 const GetButton = ({ text ='Get a movie', cn=''})=> {
    const router = useRouter();
    const { items } = useAppStore();
+   const {id} = router.query;
+
    const getMovie = () => {
       if(!items?.length) return
-      router.push(`${BASE_URL}/${getIdFromKey(items[0])}`)
+
+      const filtered = items.filter(item=> getIdFromKey(item) !== id)
+      if(filtered.length){
+         const random = getRandom(filtered.length);
+         const newId = getIdFromKey(filtered[random])
+         router.push(`${BASE_URL}/${newId}`)
+      }
+
+      
    }
    return (
       <div className={`update ${cn}`} onClick={getMovie}>

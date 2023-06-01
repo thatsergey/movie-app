@@ -22,3 +22,4 @@ export const convertDuration = (total)=>{
    const hours = Math.floor(total / 60 )
    return `${hours}h ${minutes}m`
 }
+export const getRandom = (max) => Math.floor(Math.random() * max);
