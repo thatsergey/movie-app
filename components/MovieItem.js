@@ -5,7 +5,7 @@ import movieImg from '../images/default-movie.jpg'
 import { convertDuration } from "../utils/common";
 import { useState } from "react";
 import Cast from "./Cast";
-import Review from "./Review";
+import Reviews from "./Reviews";
 
 const MovieItem = ( {
 id, 
@@ -56,7 +56,7 @@ genres,
          {isOpen &&(
             <>
                <Cast id={id}/>
-               <Review />
+               <Reviews id={id}/>
             </>
          )}
          <div className={styles.more} onClick={() => { setIsOpen(!isOpen)}}>
