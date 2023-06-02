@@ -11,6 +11,7 @@ export default function Movie({ movie }) {
       </Head>
 
       <GetButton />
+      
 
       <MovieItem {...movie.data} /> 
    </>

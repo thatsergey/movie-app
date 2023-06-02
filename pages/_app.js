@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
-  const { setItems, items } = useAppStore();
+  const { setItems, items = [] } = useAppStore();
 
   useEffect(()=>{
     if(!items.length) setItems(pageProps.data)
