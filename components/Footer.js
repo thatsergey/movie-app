@@ -9,7 +9,7 @@ const Footer =() =>{
             <a 
             href="https://github.com/thatsergey?tab=repositories" 
             target="_blank" 
-            rel="noopener noreferrer"> Sergey
+            rel="noopener noreferrer"> Serg
             </a>
          </div>
       </footer>
