@@ -4,6 +4,7 @@ import { BASE_URL } from "../utils/constans"
 import { getIdFromKey } from "../utils/common"
 import styles from '../styles/Film.module.css'
 import Link from "next/link"
+import Preloader from "./Preloader"
 
 const ActorFilms = ({ id })=> {
    const [films, setFilms] = useState([])
@@ -26,10 +27,12 @@ const ActorFilms = ({ id })=> {
       <div className={styles.films}>
          <h2>Filmography</h2>
          <div className={styles.list}>
-            {isLoading ? 'Loading' : (
+            {isLoading ? <Preloader/> : (
                films.map(({ characters, id, image, title, year }) => (
                   <a href={`${BASE_URL}/${getIdFromKey(id)}`} key={id} className={styles.item}>
-                           <div className={styles.image} style={{ backgroundImage: `url(${image.url})` }} />
+                           {image && (
+                        <div className={styles.image} style={{ backgroundImage: `url(${image.url})` }} />
+                           )}
                         <div className={styles.info}>
                            <div className={styles.info}>
                               {title}

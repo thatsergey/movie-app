@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import { getIdFromKey } from "../utils/common"
 import { BASE_URL } from "../utils/constans"
 import styles from '../styles/Reviews.module.css'
+import Preloader from "./Preloader"
 
 const Reviews = ({ id }) => {
 
@@ -23,7 +24,7 @@ const Reviews = ({ id }) => {
    return (
       <div className={styles.list}>
          <h2>Reviews</h2>
-         {isPending ? "Loading...": 
+         {isPending ? <Preloader/>: 
          (
                 reviews?.length ? (
                   <div className={styles.container}>

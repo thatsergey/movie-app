@@ -4,6 +4,7 @@ import { BASE_URL } from '../utils/constans'
 import { getIdFromKey } from "../utils/common"
 import styles from '../styles/Cast.module.css'
 import Link from "next/link"
+import Preloader from "./Preloader"
 const Cast = ({ id }) => {
    const [cast, setCast] = useState([])
    const [isPending, setIsPending] = useState(false)
@@ -22,7 +23,7 @@ const Cast = ({ id }) => {
    return (
       <div className={styles.cast}>
          <h2 className={styles.heading}>Cast</h2>
-         {isPending ? 'Loading...':
+         {isPending ? <Preloader/>:
          (
                <div className={styles.list}>
                   {cast.map(({ characters, id, image, name }) => (

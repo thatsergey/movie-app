@@ -31,7 +31,9 @@ const ActorItem = ({
          <div className={styles.birthday}>
          {new Date(birthDate).getFullYear()}
          </div>
-         <div className={styles.place}>{birthPlace}</div>
+        {birthPlace && (
+                        <div className={styles.place}>{birthPlace}</div>
+        )}
          </div>
 
          {miniBios?.length && 

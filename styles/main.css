@@ -52,6 +52,10 @@
    right: 0;
    font-size: 14px;
 }
+.icon{
+   width: 15px;
+   height: 15px;
+}
 .search .icon.loading{
    animation: rotating .5s infinite linear
 }
